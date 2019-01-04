@@ -1,0 +1,37 @@
+namespace Palindrome 
+{ 
+    class Program 
+    { 
+     public static bool IsPalindrome(string s) 
+     { 
+      int min = 0; 
+      int max = s.Length - 1; 
+      while (true) 
+      { 
+       if (min > max) // True if we've compared up to, and then gone passed the middle of the string. 
+        return true; 
+
+       if (char.ToLower(s[min++]) != char.ToLower(s[max])) 
+        return false; 
+      } 
+     } 
+
+     static void Main(string[] args) 
+     { 
+      string [] words = { 
+           "civic", 
+           "deified", 
+           // ... 
+           "stats", 
+           "tenet", 
+          }; 
+
+      foreach (string value in words) 
+      { 
+       Console.WriteLine("{0} = {1}", value, IsPalindrome(value)); 
+      } 
+
+        Console.WriteLine("\nPress any key to continue..."); 
+      Console.ReadKey(true);  } 
+    } 
+} 
